@@ -66,3 +66,12 @@ var reduce = function(list, iteratee, initial) {
 	}
 	return start;
 };
+
+// Functional style (not working without memo)
+var reduce = function(list, iteratee, memo) {
+	var memo = memo || list[0] || list[Object.keys(list)[0]];
+	_.each(list, function(element, index, list){
+		memo = iteratee(memo, element, index, list);
+	});
+	return memo;
+};
