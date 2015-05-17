@@ -1,7 +1,8 @@
-// Reduce
-var reduce = function(list, iteratee, memo) {
+// Reduce Right
+var reduceRight = function(list, iteratee, memo) {
+	list = list.reverse();
 	var memoUndefined = arguments.length < 3;
-	_.each(list, function(elem, index, list){
+	_.each(list, function(elem, index){
 		if (memoUndefined) {
 			memoUndefined = false;
 			memo = elem;
